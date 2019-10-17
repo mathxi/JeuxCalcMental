@@ -19,6 +19,16 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="library" scope="PROVIDED" name="TomEE 9.0.22" level="application_server_libraries" />
+    <orderEntry type="module-library" scope="RUNTIME">
+      <library>
+        <CLASSES>
+          <root url="jar://C:/Program Files/Java/jstl-1.2.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="library" scope="PROVIDED" name="Tomcat 9.0.26" level="application_server_libraries" />
+    <orderEntry type="library" scope="PROVIDED" name="TomEE 8.0 PluMe" level="application_server_libraries" />
   </component>
 </module>
