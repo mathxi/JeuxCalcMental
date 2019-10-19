@@ -14,15 +14,15 @@
 </context-param>
 <context-param>
     <param-name>DB_URL</param-name>
-    <param-value>jdbc:mysql://localhost:3306/epsi-b3-19-20?serverTimezone=UTC</param-value>
+    <param-value>jdbc:mysql://localhost:3306/jeuxcalcmental?serverTimezone=UTC</param-value>
 </context-param>
 <context-param>
     <param-name>DB_LOGIN</param-name>
-    <param-value>sega</param-value>
+    <param-value>jeuxcalcmental</param-value>
 </context-param>
 <context-param>
     <param-name>DB_PWD</param-name>
-    <param-value>sylla</param-value>
+    <param-value>jeuxcalcmental</param-value>
 </context-param>
 
 <session-config>

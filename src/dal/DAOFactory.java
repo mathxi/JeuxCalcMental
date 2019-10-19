@@ -1,8 +1,10 @@
 package dal;
 
+import bo.Resultat;
 import bo.User;
 
 import javax.servlet.ServletContext;
+import java.util.List;
 
 public class DAOFactory {
 
@@ -15,6 +17,7 @@ public class DAOFactory {
     public static void init( ServletContext context ) throws ClassNotFoundException {
 
         mode = context.getInitParameter( "DS_MODE" );
+        System.out.println("coucou");
         switch ( mode ) {
             case "JDBC" :
                 Class.forName( context.getInitParameter( "DB_DRIVER" ) );
@@ -33,6 +36,20 @@ public class DAOFactory {
         switch ( mode ) {
             case "JDBC" :
                 dao = new UserDAOJDBC(dbUrl, dbLogin, dbPwd);
+                break;
+            case "JPA" :
+            default:
+                //TODO
+                dao = null;
+        }
+        return dao;
+    }
+
+    public static IDAO<Resultat> getResultatsDAO() {
+       IDAO <Resultat> dao;
+        switch ( mode ) {
+            case "JDBC" :
+                dao = new ResultatDAOJDBC(dbUrl, dbLogin, dbPwd);
                 break;
             case "JPA" :
             default:

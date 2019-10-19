@@ -27,6 +27,7 @@ public class LoginBean implements Serializable {
         pwd = request.getParameter( FORM_FIELD_PWD );
         UserDAOJDBC dao = ( UserDAOJDBC ) DAOFactory.getUserDAO();
         User user = null;
+        System.out.println("HELLO");
         try {
             user = dao.authenticate( login, pwd );
 

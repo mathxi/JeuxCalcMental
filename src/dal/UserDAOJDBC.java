@@ -8,6 +8,7 @@ import java.util.List;
 public class UserDAOJDBC extends DataAccessObjectJDBC<User> {
 
     private static final String AUTHENT_QUERY = "SELECT * FROM user WHERE login = ? AND password = ?";
+    private static final String GET_USER_QUERY = "SELECT * FROM user WHERE id_user = ? ";
 
     public UserDAOJDBC( String dbUrl, String dbLogin, String dbPwd ) {
         super( dbUrl, dbLogin, dbPwd );
@@ -32,13 +33,30 @@ public class UserDAOJDBC extends DataAccessObjectJDBC<User> {
             ps.setString( 2, password );
             try ( ResultSet rs = ps.executeQuery() ) {
                 if ( rs.next() ) {
-                    int nbConnections = rs.getInt("connections") +1;
-                    rs.updateInt("connections", nbConnections);
-                    rs.updateRow();
                     user = new User();
+                    user.setId_user( rs.getInt( "id_user" ) );
                     user.setLogin( rs.getString( "login" ) );
                     user.setPassword( rs.getString( "password" ) );
-                    user.setNbConnections( nbConnections );
+                    user.setTopResult( rs.getInt("top_result") );
+
+                }
+            }
+        }
+        return user;
+    }
+    public User getUser( Integer id) throws SQLException {
+
+        User user = null;
+        try ( Connection connection = DriverManager.getConnection( dbUrl, dbLogin, dbPwd );
+              PreparedStatement ps = connection.prepareStatement(GET_USER_QUERY, ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_UPDATABLE) ) {
+            ps.setInt( 1, id );
+            try ( ResultSet rs = ps.executeQuery() ) {
+                if ( rs.next() ) {
+                    user = new User();
+                    user.setId_user( rs.getInt( "id_user" ) );
+                    user.setLogin( rs.getString( "login" ) );
+                    user.setPassword( rs.getString( "password" ) );
+                    user.setTopResult( rs.getInt("top_result") );
 
                 }
             }

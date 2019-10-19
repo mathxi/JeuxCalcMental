@@ -3,17 +3,29 @@ package bo;
 import java.io.Serializable;
 
 public class User implements Serializable {
+    private  int id_user;
+
+
 
     private String login;
     private String password;
-    private int nbConnections;
+    private int topResult;
 
     public User() {}
 
-    public User( String login, String password, int nbConnections ) {
+    public User(int id_user, String login, String password, int topResult) {
+        this.id_user = id_user;
         this.login = login;
         this.password = password;
-        this.nbConnections = nbConnections;
+        this.topResult = topResult;
+    }
+
+    public int getId_user() {
+        return id_user;
+    }
+
+    public void setId_user(int id_user) {
+        this.id_user = id_user;
     }
 
     public String getLogin() {
@@ -32,11 +44,11 @@ public class User implements Serializable {
         this.password = password;
     }
 
-    public int getNbConnections() {
-        return nbConnections;
+    public int getTopResult() {
+        return topResult;
     }
 
-    public void setNbConnections( int nbConnections ) {
-        this.nbConnections = nbConnections;
+    public void setTopResult( int topResult ) {
+        this.topResult = topResult;
     }
 }

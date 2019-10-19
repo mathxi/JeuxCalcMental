@@ -13,7 +13,7 @@ import java.io.IOException;
 public class LoginController extends HttpServlet {
 
     private static final String PAGE_LOGIN_JSP = "/WEB-INF/jsp/login.jsp";
-    private static final String PAGE_HOME_JSP = "/persons";
+    private static final String PAGE_HOME_JSP = "/accueil";
 
     @Override
     protected void doGet( HttpServletRequest request, HttpServletResponse response ) throws ServletException, IOException {
@@ -21,6 +21,7 @@ public class LoginController extends HttpServlet {
         LoginBean model = new LoginBean();
         if ( model.isConnected( request ) ) {
             response.sendRedirect( request.getContextPath()+PAGE_HOME_JSP );
+
         } else {
             request.getRequestDispatcher( PAGE_LOGIN_JSP ).forward( request, response );
         }

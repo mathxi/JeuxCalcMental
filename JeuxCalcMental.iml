@@ -29,6 +29,6 @@
       </library>
     </orderEntry>
     <orderEntry type="library" scope="PROVIDED" name="Tomcat 9.0.26" level="application_server_libraries" />
-    <orderEntry type="library" scope="PROVIDED" name="TomEE 8.0 PluMe" level="application_server_libraries" />
+    <orderEntry type="library" scope="PROVIDED" name="TomEE 9.0.22" level="application_server_libraries" />
   </component>
 </module>

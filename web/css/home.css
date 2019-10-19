@@ -1,0 +1,73 @@
+
+body{
+    background-color: #d3d3d329;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+h1{
+    color: #353535;
+}
+.button.primary {
+    color: #fff5f5;
+    font-weight: bold;
+    text-shadow: 0px 0px 5px #0000006e;
+
+}
+.button.primary:focus, .button.primary:hover{
+    color: #fff5f5;
+}
+.result-Container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    flex-wrap: wrap;
+}
+
+.stats-list {
+    list-style-type: none;
+    clear: left;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    margin-bottom: 30px;
+    padding: 50px;
+    margin: 10px 50px;
+    background-color: white;
+    box-shadow: 0px 1px 3px #0000006e;
+    border-radius: 5px;
+}
+
+.stats-list .stats-list-positive {
+    color: #3adb76;
+}
+
+.stats-list .stats-list-negative {
+    color: #cc4b37;
+}
+
+.stats-list > li {
+    display: inline-block;
+    margin-right: 10px;
+    padding-right: 10px;
+    border-right: 1px solid #cacaca;
+    text-align: center;
+    font-size: 1.1em;
+    font-weight: bold;
+}
+
+.stats-list > li:last-child {
+    border: none;
+    margin: 0;
+    padding: 0;
+}
+
+.stats-list > li .stats-list-label {
+    display: block;
+    margin-top: 2px;
+    font-size: 0.9em;
+    font-weight: normal;
+}
+
