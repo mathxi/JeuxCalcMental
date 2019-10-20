@@ -70,10 +70,9 @@ public class QuestionController extends HttpServlet {
                     }
                 }
             }
-
-
-            request.getRequestDispatcher(PAGE_QUESTIONS_JSP).forward(request, response);
         }
+        request.getRequestDispatcher(PAGE_QUESTIONS_JSP).forward(request, response);
+
     }
 
     @Override
