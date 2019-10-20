@@ -9,7 +9,7 @@ public class UserDAOJDBC extends DataAccessObjectJDBC<User> {
 
     private static final String AUTHENT_QUERY = "SELECT * FROM user WHERE login = ? AND password = ?";
     private static final String GET_USER_QUERY = "SELECT * FROM user WHERE id_user = ? ";
-    private static final String UPDATE_USER_TOPSCORE = "UPDATE result SET top_result = ? WHERE id_user = ?";
+    private static final String UPDATE_USER_TOPSCORE = "UPDATE user SET top_result = ? WHERE id_user = ?";
 
     public UserDAOJDBC( String dbUrl, String dbLogin, String dbPwd ) {
         super( dbUrl, dbLogin, dbPwd );

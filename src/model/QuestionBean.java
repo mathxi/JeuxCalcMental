@@ -79,7 +79,9 @@ public class QuestionBean {
 
        ResultatDAOJDBC dao = ( ResultatDAOJDBC ) DAOFactory.getResultatsDAO();
        UserDAOJDBC userDAO = (UserDAOJDBC) DAOFactory.getUserDAO();
-
+       System.out.println("L'utilisateur courant est : " + connectedUser.getId_user());
+       System.out.println("Son meilleur score est : " + connectedUser.getTopResult());
+       System.out.println("Le score actuel est : " + cptBonneRep);
        if(connectedUser.getTopResult() < cptBonneRep){
            System.out.println("J'update la bdd User de l'user " + connectedUser.getId_user() + "Avec le score " + cptBonneRep);
            userDAO.UpdateTopScore(connectedUser.getId_user(), cptBonneRep);
