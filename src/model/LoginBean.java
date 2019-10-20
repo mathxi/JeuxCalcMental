@@ -35,6 +35,7 @@ public class LoginBean implements Serializable {
                 HttpSession session = request.getSession( true );
                 //TODO récupération et incrémentation du nombre de connexions
                 session.setAttribute( ATT_AUTH_SESSION, user );
+                session.setAttribute("LoginUser", login);
                 authentResult = "Authentification réussie : Bienvenue " + login;
             } else {
                 authentResult = "Authentification échouée !!!";

@@ -9,6 +9,7 @@ public class UserDAOJDBC extends DataAccessObjectJDBC<User> {
 
     private static final String AUTHENT_QUERY = "SELECT * FROM user WHERE login = ? AND password = ?";
     private static final String GET_USER_QUERY = "SELECT * FROM user WHERE id_user = ? ";
+    private static final String UPDATE_USER_TOPSCORE = "UPDATE result SET top_result = ? WHERE id_user = ?";
 
     public UserDAOJDBC( String dbUrl, String dbLogin, String dbPwd ) {
         super( dbUrl, dbLogin, dbPwd );
@@ -62,5 +63,15 @@ public class UserDAOJDBC extends DataAccessObjectJDBC<User> {
             }
         }
         return user;
+    }
+
+    public void UpdateTopScore( int id, int top_score) throws SQLException {
+
+        try ( Connection connection = DriverManager.getConnection( dbUrl, dbLogin, dbPwd );
+              PreparedStatement ps = connection.prepareStatement(UPDATE_USER_TOPSCORE) ) {
+            ps.setInt( 1,  top_score );
+            ps.setInt( 2, id );
+            ps.executeUpdate();
+        }
     }
 }

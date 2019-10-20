@@ -9,10 +9,12 @@ import java.util.List;
 
 public class ResultatDAOJDBC extends DataAccessObjectJDBC<Resultat> {
     private static final String TOP_TEN_RESULT = "SELECT * from result order by points DESC,date_result DESC LIMIT 0,10";
+    private static final String ADD_RESULT_BDD = "INSERT INTO result (points, id_user) VALUES (?,?)";
 
     public ResultatDAOJDBC(String dbUrl, String dbLogin, String dbPwd) {
         super(dbUrl, dbLogin, dbPwd);
     }
+
     public List<Resultat> getTopTenResultat() throws SQLException {
 
         List<Resultat> resultats = new ArrayList<Resultat>();
@@ -36,7 +38,17 @@ public class ResultatDAOJDBC extends DataAccessObjectJDBC<Resultat> {
     }
 
     @Override
-    public void create(Resultat objet) {
+    public void create(Resultat objet) throws SQLException {
+
+        try (Connection connection = DriverManager.getConnection( dbUrl, dbLogin, dbPwd );
+             PreparedStatement ps = connection.prepareStatement(ADD_RESULT_BDD) ) {
+            ps.setInt(1, objet.getResult());
+            ps.setInt(2, objet.getId_user().getId_user());
+            ps.executeUpdate();
+            try ( ResultSet rs = ps.executeQuery() ) {
+
+            }
+        }
 
     }
 
