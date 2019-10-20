@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le :  jeu. 17 oct. 2019 à 10:26
+-- Généré le :  Dim 20 oct. 2019 à 22:58
 -- Version du serveur :  5.7.24
 -- Version de PHP :  7.2.14
 
@@ -31,12 +31,31 @@ SET time_zone = "+00:00";
 DROP TABLE IF EXISTS `result`;
 CREATE TABLE IF NOT EXISTS `result` (
   `id_result` int(11) NOT NULL AUTO_INCREMENT,
-  `result` int(11) NOT NULL,
+  `points` int(11) NOT NULL,
   `date_result` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `id_user` int(11) NOT NULL,
   PRIMARY KEY (`id_result`),
   KEY `id_user` (`id_user`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+
+--
+-- Déchargement des données de la table `result`
+--
+
+INSERT INTO `result` (`id_result`, `points`, `date_result`, `id_user`) VALUES
+(1, 8, '2019-10-17 12:58:23', 3),
+(2, 2, '2019-10-17 13:00:28', 1),
+(3, 6, '2019-10-17 13:00:39', 3),
+(4, 4, '2019-10-17 13:00:53', 1),
+(5, 6, '2019-10-17 13:01:03', 2),
+(6, 9, '2019-10-17 13:01:47', 1),
+(7, 1, '2019-10-17 13:01:57', 1),
+(8, 6, '2019-10-17 13:02:06', 1),
+(9, 7, '2019-10-17 13:02:19', 3),
+(10, 10, '2019-10-17 13:02:42', 1),
+(11, 8, '2019-10-17 13:02:52', 1),
+(12, 8, '2019-10-17 13:02:59', 3),
+(13, 7, '2019-10-17 13:03:16', 3);
 
 -- --------------------------------------------------------
 
@@ -51,14 +70,16 @@ CREATE TABLE IF NOT EXISTS `user` (
   `password` varchar(255) COLLATE utf8_bin NOT NULL,
   `top_result` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id_user`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 --
 -- Déchargement des données de la table `user`
 --
 
 INSERT INTO `user` (`id_user`, `login`, `password`, `top_result`) VALUES
-(1, 'Admin', 'Admin', 0);
+(1, 'Admin', 'Admin', 0),
+(2, 'jackie', 'michel', 0),
+(3, 'clement', 'moreau', 0);
 
 --
 -- Contraintes pour les tables déchargées
